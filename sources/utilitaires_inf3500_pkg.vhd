@@ -240,36 +240,36 @@ package body utilitaires_inf3500_pkg is
     -- Description combinatoire par encodeurs à priorité.
     --
     function unsigned_to_BCD(nombre : unsigned(9 downto 0)) return BCD3 is
-	variable n, c, d, u : natural := 0;
+    variable n, c, d, u : natural := 0;
     begin
         
         assert nombre < 1000 report "fonction unsigned_to_BCD, les nombres >= 1000 ne sont pas pris en charge" severity failure;
 
         n := to_integer(nombre);
-		
-		c := 0;
-		for centaines in 9 downto 1 loop
-			if n >= centaines * 100 then
-				c := centaines;
-				exit;
-			end if;
-		end loop;
+        
+        c := 0;
+        for centaines in 9 downto 1 loop
+            if n >= centaines * 100 then
+                c := centaines;
+                exit;
+            end if;
+        end loop;
 
-		n := n - c * 100;
+        n := n - c * 100;
 
-		d := 0;
-		for dizaines in 9 downto 1 loop
-			if n >= dizaines * 10 then
-				d := dizaines;
-				exit;
-			end if;
-		end loop;
-		
-		u := n - d * 10;
-		
+        d := 0;
+        for dizaines in 9 downto 1 loop
+            if n >= dizaines * 10 then
+                d := dizaines;
+                exit;
+            end if;
+        end loop;
+        
+        u := n - d * 10;
+        
         return to_unsigned(c, 4) & to_unsigned(d, 4) & to_unsigned(u, 4);
 
-	end;	
+    end;    
     
     
     ------------------------------------------------------------------------------------------------

@@ -15,9 +15,9 @@ package PolyRISC_utilitaires_pkg is
     
     -- taille du processeur
     constant Nreg : positive := 16;    -- nombre de registres
-	constant Wd : positive := 16;      -- largeur du chemin des données en bits
-	constant Mi : positive := 8;       -- largeur du PC et nombre de bits d'adresse de la mémoire d'instructions
-	constant Md : positive := 8;       -- nombre de bits d'adresse de la mémoire des données
+    constant Wd : positive := 16;      -- largeur du chemin des données en bits
+    constant Mi : positive := 8;       -- largeur du PC et nombre de bits d'adresse de la mémoire d'instructions
+    constant Md : positive := 8;       -- nombre de bits d'adresse de la mémoire des données
 
     type lesRegistres_type is array(0 to Nreg - 1) of signed(Wd - 1 downto 0);
     type memoireDonnees_type is array(0 to 2 ** Md - 1) of signed(Wd - 1 downto 0);

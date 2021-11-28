@@ -234,34 +234,34 @@ begin
         -- choixCharge
         choixCharge <= instruction.reg1;
 
-		-- choixA et choixB
-		if (instruction.categorie = reg) then
-			choixA <= instruction.reg2;
-			choixB <= instruction.valeur mod Nreg; -- on garde seulement les log2(Nreg) bits les moins significatifs
-		elsif (instruction.categorie = reg_valeur) then
-			choixA <= instruction.reg2;
-			choixB <= instruction.reg1;
-		elsif (instruction.categorie = branchement) then
-			choixA <= instruction.reg2;
-			choixB <= instruction.reg1;
-		elsif (instruction.categorie = memoire) then
-			if (instruction.details = lirememoire) then
-				choixA <= instruction.reg2;
-				choixB <= instruction.reg1; -- valeur bidon, le port B n'est pas lu
-			elsif (instruction.categorie = ecrirememoire) then
-				choixA <= instruction.reg2;
-				choixB <= instruction.reg1; -- valeur bidon, le port B n'est pas lu
-			elsif instruction.categorie = ecrireGPIO_out then
-				choixA <= instruction.reg2; -- valeur bidon, le port A n'est pas lu
-				choixB <= instruction.reg1;
+        -- choixA et choixB
+        if (instruction.categorie = reg) then
+            choixA <= instruction.reg2;
+            choixB <= instruction.valeur mod Nreg; -- on garde seulement les log2(Nreg) bits les moins significatifs
+        elsif (instruction.categorie = reg_valeur) then
+            choixA <= instruction.reg2;
+            choixB <= instruction.reg1;
+        elsif (instruction.categorie = branchement) then
+            choixA <= instruction.reg2;
+            choixB <= instruction.reg1;
+        elsif (instruction.categorie = memoire) then
+            if (instruction.details = lirememoire) then
+                choixA <= instruction.reg2;
+                choixB <= instruction.reg1; -- valeur bidon, le port B n'est pas lu
+            elsif (instruction.categorie = ecrirememoire) then
+                choixA <= instruction.reg2;
+                choixB <= instruction.reg1; -- valeur bidon, le port B n'est pas lu
+            elsif instruction.categorie = ecrireGPIO_out then
+                choixA <= instruction.reg2; -- valeur bidon, le port A n'est pas lu
+                choixB <= instruction.reg1;
             else
-				choixA <= instruction.reg2;
-				choixB <= instruction.reg1;
-			end if;
-		else -- en principe on n'arrive jamais ici
-			choixA <= 0; -- valeur bidon
-			choixB <= 0; -- valeur bidon
-		end if;	
+                choixA <= instruction.reg2;
+                choixB <= instruction.reg1;
+            end if;
+        else -- en principe on n'arrive jamais ici
+            choixA <= 0; -- valeur bidon
+            choixB <= 0; -- valeur bidon
+        end if;    
 
         -------------------------------------------------------------------------------
         -- signaux de contrôle de l'UAL
