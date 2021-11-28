@@ -26,16 +26,19 @@ Fichier modifié [PolyRISC_le_programme_pkg.vhd](sources/PolyRISC_le_programme_p
 ## Partie 3 : Implémentation sur la planchette
 
 **Faire un choix et garder seulement une option.**
+
 Nous utilisons la carte Basys 3.
+
 Nous utilisons la carte Nexys A7-50T.
+
 Nous utilisons la carte Nexys A7-100T.
 
-Voici un lien vers notre fichier de configuration final : [top_labo_5.bit](synthese-implementation/top_labo_5.bit)0
+Voici un lien vers notre fichier de configuration final : [top_labo_5.bit](synthese-implementation/top_labo_5.bit)
 
 
 ## Partie 4 : Ressources pour implémenter le processeur PolyRISC
 
-Nous utilisons la carte Basys 3 / Nexys A7-50T / Nexys A7-100 T. Voici le nombre de ressources disponibles dans notre FPGA.
+Voici le nombre de ressources disponibles dans notre FPGA.
 
 Slice LUTs | Slice Registers | F7 Muxes | F8 Muxes | Bonded IOB
 ---------- | --------------- | -------- | -------- | ----------
